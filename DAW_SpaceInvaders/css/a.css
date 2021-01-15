@@ -1,0 +1,413 @@
+/*Imports*/
+@import url(http://fonts.googleapis.com/css?family=Geo&subset=latin);
+
+/*Estilos*/
+canvas{
+	display: block;
+	position: absolute;
+	margin: auto;
+	top: 0;bottom: 0;left: 0;right: 0;
+	background-image: url('../img/bg.png');
+}
+
+body{background-color: black;}
+
+/*Contenedor - dentro estan los botones*/
+#container{
+	width: 504px;
+	height: 600px;
+	display: block;
+	position: absolute;
+	margin: auto;
+	top: 0;bottom: 0;left: 0;right: 0;
+	border-image: url("../img/fondo.jpg") 30 30 round;
+	border-width: 25px 40px;
+    border-style: solid;
+    text-align: center;
+}
+
+#titulo {
+	background-image: url('../img/titulo.png');
+	background-size: 70%;
+	background-repeat: no-repeat;
+	width: 400px;
+	height: 200px;
+	background-position: center;
+	position: fixed;
+	margin: auto;
+	margin-top: -60px;
+	left: 0;right: 0;
+	z-index: 3;
+}
+
+#start {
+	position: relative;
+	margin: auto;
+	background-image: url('../img/start.gif');
+	background-size: 70%;
+	width: 150px;
+	height: 75px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: Transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	margin-top: 150px;
+}
+
+#start:hover{
+	width: 225px;
+	transition: width 1s, height 1s;
+}
+
+#help{
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background-color: Transparent;
+	position: relative;
+	width: 150px;
+	height: 75px;
+	background-image: url("../img/help2.png");
+	background-size: 70%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#help:hover{
+	width: 225px;
+	transition: width 1s, height 1s;
+}
+
+#gif{padding: 0;margin: auto;}
+
+#stream {display: none;}
+
+/*animación botón start*/
+.bounce {
+  -webkit-animation:bounce 1s infinite;
+}
+
+@-webkit-keyframes bounce {
+  0%       { bottom:5px; }
+  25%, 75% { bottom:15px; }
+  50%      { bottom:20px; }
+  100%     {bottom:0;}
+}
+
+span{
+	color: white;
+    font-family: 'Geo', serif;
+    font-size: 25px;
+    -webkit-font-smoothing: none;
+}
+
+h4{
+	margin-top: 150px;
+  	display: inline-block;
+  	vertical-align: middle;
+    font-family: 'Geo', serif;
+    font-size: 25px;
+    -webkit-font-smoothing: none;
+}
+
+p{
+  	display: inline-block;
+  	vertical-align: middle;
+    font-family: 'Geo', serif;
+    font-size: 23px;
+    -webkit-font-smoothing: none;	
+}
+
+#return{
+	position: relative;
+	margin: auto;
+	background-image: url('../img/back.png');
+	background-size: 70%;
+	width: 150px;
+	height: 75px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: Transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+#return:hover{
+	width: 225px;
+	transition: width 1s, height 1s;
+}
+
+
+#lost{
+	text-align: center;
+	background-color: black;
+	margin: auto;
+	top: 0;bottom: 0;left: 0;right: 0;
+	position: absolute;
+	display: none;
+	width: 504px;
+	height: 600px;
+	z-index: 2;
+}
+
+#reset {
+	position: relative;
+	margin: auto;
+	background-image: url('../img/reset.png');
+	background-size: 70%;
+	width: 150px;
+	height: 75px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: Transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+#reset:hover{
+	width: 225px;
+	transition: width 1s, height 1s;
+}
+
+.save {
+	position: relative;
+	margin: auto;
+	background-image: url('../img/savebutton.png');
+	background-size: 70%;
+	width: 90px;
+	height: 75px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: Transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	margin-top: 30px;
+}
+.save:hover{
+	width: 110px;
+	transition: width 1s, height 1s;
+}
+
+
+#vida{
+	float: left;
+   	position: absolute;
+   	bottom: 5px;
+   	left: 10px;
+   	display: none;
+}
+
+#hitpoints{
+	width: 33%;
+	display: none;
+	float: right;
+	left: 0;
+}
+
+#rounds{
+	width: 33%;
+	color: white;
+	float: left;
+	left: 0;
+	display: none;
+}
+
+#score{
+	width: 33%;
+	color: white;
+	float: left;
+	display: none;
+}
+
+#points{
+	margin: auto;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+
+#highscores{
+	background-image: url(../img/highscore2.png);
+	background-size: 40%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: Transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	width: 150px;
+	height: 75px;
+}
+#highscores:hover{
+	width: 200px;
+	transition: width 1s, height 1s;
+}
+
+#ranking{
+	text-align: center;
+	background-color: black;
+	margin: auto;
+	top: 0;bottom: 0;left: 0;right: 0;
+	position: absolute;
+	display: none;
+	width: 504px;
+	height: 600px;
+	z-index: 2;
+}
+
+#backtomenu{
+	background-image: url('../img/back.png');
+	background-size: 70%;
+	width: 150px;
+	height: 75px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: Transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+#backtomenu:hover{
+	width: 225px;
+	transition: width 1s, height 1s;
+}
+
+#lista{
+	margin-right: 50px;
+	margin-top: 150px;
+	color: white;
+	color: white;
+    font-family: 'Geo', serif;
+    font-size: 25px;
+    list-style-type: none;
+}
+
+#best{
+	margin-right: 50px;
+	color: white;
+	color: white;
+    font-family: 'Geo', serif;
+    font-size: 25px;
+    list-style-type: none;
+}
+
+
+
+
+#deletecookies{
+	background-image: url('../img/reset.png');
+	margin: auto;
+	background-size: 70%;
+	width: 130px;
+	height: 65px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: Transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+#deletecookies:hover{
+	width: 225px;
+	transition: width 1s, height 1s;
+}
+
+#red{
+	color: white;
+	background-color: red;
+	opacity: 0.25;
+	text-align: center;
+	margin: auto;
+	top: 0;bottom: 0;left: 0;right: 0;
+	position: absolute;
+	display:inline-block;
+	width: 504px;
+	height: 600px;
+	z-index: 2;
+}
+
+#aviso{
+	color: white;
+	text-align: center;
+	margin: auto;
+	top: 0;bottom: 0;left: 0;right: 0;
+	position: absolute;
+	display:none;
+	width: 504px;
+	height: 600px;
+	z-index: 2;
+}
+#aviso p{
+	margin-top: 150px;
+	font-weight: bold;
+	z-index: 4;
+}
+
+#helpdiv{
+	color: white;
+	text-align: center;
+	background-color: black;
+	margin: auto;
+	top: 0;bottom: 0;left: 0;right: 0;
+	position: absolute;
+	display: none;
+	width: 504px;
+	height: 600px;
+	z-index: 2;
+}
+
+#userwin{
+	color: white;
+	text-align: center;
+	background-color: black;
+	margin: auto;
+	top: 0;bottom: 0;left: 0;right: 0;
+	position: absolute;
+	width: 504px;
+	height: 600px;
+	z-index: 2;
+	justify-content: center;
+	display: none;
+}
+
+#winimg{
+	display: inline-block;
+	margin-top: 30%;
+	width: 50%;
+	height: 100px;
+	background-image: url(../img/winner.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+#startagain{
+	position: relative;
+	margin: auto;
+	background-image: url('../img/reset.png');
+	background-size: 70%;
+	width: 150px;
+	height: 75px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: Transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+#powerupscreen{
+	background-color:#ff6600;
+	opacity: 0.05;
+	text-align: center;
+	margin: auto;
+	top: 0;bottom: 0;left: 0;right: 0;
+	position: absolute;
+	display:none;
+	width: 504px;
+	height: 600px;
+	z-index: 2;
+}

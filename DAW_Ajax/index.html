@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Ajax</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--Bootstrap4 libraries-->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<!--Font awesome-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!--Main CSS-->
+        <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css">
+    </head>
+
+    <body>
+        <!--Navbar-->
+        <nav class="navbar navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">AJAX</a>
+        </nav>
+
+        <!--Body-->
+        <div class="container mt-5">
+            
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <h4>Dar de alta</h4><hr>
+
+                    <div class="form-group mb-2">
+                        <span>Departamento:</span><br>
+                        <select id="departamento" name="departamento" class="btn btn-dark"></select>
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <span>Puesto:</span><br>
+                        <select id="puesto" name="puesto" class="btn btn-dark"></select>
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <span>Nombre:</span><br>
+                        <input type="text" id="nombre" name="nombre">
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <span>E-mail:</span><br>
+                        <input type="text" id="email" name="email">
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <span>Teléfono:</span><br>
+                        <input type="text" id="tlf" name="tlf">
+                    </div>
+
+                    <button id="envia" class="btn btn-primary">confirmar</button>
+                </div>
+                
+                <div class="col-6">
+                    <h4>Empleados dados de alta</h4><hr>
+                    <select id="dept" name="dept" class="btn btn-dark">
+                        <option value="1">Administración</option>
+                        <option value="2">informática</option>
+                    </select>
+                    <button id="consulta" class="btn btn-primary">consulta</button>
+                    <div id="tabla"></div>
+                </div>
+            </div>
+        </div>
+        
+	    <!--Scripts de bootstrap-->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	    <!--Main js-->
+		<script src="js/js.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--Bootstrap CSS-->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+		<!--Font awesome-->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<!--Main CSS-->
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<!--Google fonts-->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	</head>
+
+	<body>	
+		<nav class="navbar navbar-expand-lg rojo">
+			<span class="navbar-brand">Playlist</span>
+		</nav>
+
+		<div ng-app="playlist" ng-controller="myCtrl" class="container-fluid mt-3">
+
+			<!--Filtros-->
+			<div class="mb-3" id="filtros">
+				<!--Filtrar por contenido-->
+				<div class="div-custom">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Filtrar:</span>
+						<input type="text" ng-model="filtro" class="form-control">
+					</div>
+				</div>
+
+				<!--Ordenar por nombre-->
+				<div class="div-custom mx-2">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Ordenar:</span>
+						<select ng-model="orden" ng-init="order='Nombre'" class="form-control">
+							<option>Nombre</option>
+							<option>Autor</option>
+							<option>Genero</option>
+							<option>Duracion</option>
+						</select>
+					</div>
+				</div>
+
+				<!--Playlists-->
+				<div class="div-custom mx-2">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Listas</span>
+						<select ng-model="selected" ng-options="playlist as playlist.Nombre for playlist in playlists" ng-change="selectedOption()" id="selector" class="form-control">
+						</select>
+					</div>
+				</div>
+
+				<!--Añadir playlists-->
+				<div class="div-custom">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Nueva</span>
+						<input ng-model="nuevaPlaylist" type="text" id="miPlaylist" class="form-control">
+						<button ng-click="newPlaylist()" class="custom-btn">añadir</button>
+					</div>
+				</div>
+			<!--Final filtros-->
+			</div>
+
+			<!--Tablas de datos-->
+			<div class="row">
+				<!--Canciones-->
+				<div class="mt-2 col-6">
+					<span>Canciones</span>
+				  	<hr>
+				  	<ul class="list-group">
+				  		<!--Datos del JSON-->
+				    	<li class="list-group-item" ng-repeat="x in music | filter:filtro | orderBy:orden | limitTo: limite()">
+				    		{{x.Nombre + ', '+ x.Autor + ', '+ x.Genero + ', '+ x.Duracion}}
+				    		<button ng-click="addSong(x)" class="custom-btn float-right">añadir</button>
+				    	</li>
+				  	</ul>
+				  	<hr>
+
+				  	<div class="mt-2">
+					  	<button ng-click="mostrarMas()" class="simple-btn"><i class="fa fa-plus"></i></button>
+				  		<button ng-click="mostrarMenos()" class="simple-btn"><i class="fa fa-minus"></i></button>
+				  	</div>
+			  	</div>
+
+			  	<!--Playlists-->
+			  	<div class="mt-2 col-6">
+			  		<div ng-if="selectedList">
+			  			<span>Duración: {{selectedList.Duracion}} seg</span>
+			  			<span>| Nº Canciones: {{selectedList.N_canciones}}</span>
+			  			<hr>
+			  		</div>
+			  		<ul class="list-group">
+			  			<li class="list-group-item" ng-repeat="x in selectedList.Canciones">
+							{{x.Nombre + ', '+ x.Autor + ', '+ x.Genero + ', '+ x.Duracion}}
+				    		<span class="simple-btn-2 float-right" id="btn" ng-click="removeItem($index)">
+				    			<i class="fa fa-trash"></i>
+				    		</span>
+			  			</li>
+			  		</ul>
+			  	</div>
+
+		  	</div>
+		  	
+		</div>
+
+	    <!--Scripts de bootstrap-->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	    <!--Main js-->
+		<script type="text/javascript" src="js/js.js"></script>
+	</body>
+</html>

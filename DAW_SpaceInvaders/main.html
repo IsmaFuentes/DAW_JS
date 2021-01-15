@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Space invaders</title>
+		<script type="text/javascript" src="script/main.js"></script>
+		<script type="text/javascript" src="script/builders.js"></script>
+		<script type="text/javascript" src="script/cookies.js"></script>
+		<script type="text/javascript" src="script/powerups.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/a.css">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		
+		<div id="container">
+			<div id="menuprincipal">
+				<div id="titulo"></div>
+				<!--Puntuación-->
+				<span id="score">Score:<span id="points">0</span></span>
+				<span id="rounds">Round: <span id="ronda">0</span></span>
+				<span id="hitpoints">Boss HP: <span id="hp">0</span></span>
+				<span id="vida">Lifes: <span id="vidas">0</span></span>
+				<!--Botón start game-->
+				<button id="start" class="bounce"></button>
+				<br><br>
+				<button id="highscores"></button>
+				<br><br>
+				<!--Botón página help-->
+				<button id="help"></button>
+				<br><br><br>
+				<span id="hide">By Ismael Fuentes</span>
+			</div>
+		</div>
+		<!--Div que se muestra al perder la partida-->
+		<div id="lost">
+			<img src="img/gameover.gif">
+			<br>
+			<span>Your score was: <span id="puntos">0</span></span>
+			<br>
+			<button id="savebutton" class="save"></button>
+			<br>
+			<button id="reset"></button>
+		</div>
+		<!--La pantalla se colorea de rojo cuando el jugador recibe un disparo-->
+		<div id="aviso">
+			<div id="red"></div>
+			<p>-1 life!</p>
+		</div>
+		<!--Div que contiene el ranking-->
+		<div id="ranking">
+			<div>
+				<ul id="lista">
+					<li>Last player score:</li>
+				</ul>
+			</div>
+			<div>
+				<ul id="best">
+					<li>Best possible score:</li>
+					<li>4520</li>
+				</ul>
+			</div>
+			<br>
+			<button id="deletecookies"></button>
+			<br>
+			<button id="backtomenu"></button>
+		</div>
+		<!--Página de ayuda - controles básicos del juego-->
+		<div id="helpdiv">
+			<h4>GAME OPTIONS</h4>
+			<br>
+			<p>
+			Move left -> left keyboard arrow.<br>
+			Move right ->right keyboard arrow.<br>
+			Shoot -> spacebar.
+			</p><br>
+			<p>
+			Tip: Kill the enemies
+			</p><br>
+			<button id="return"></button>
+		</div>
+		<!--Div que se muestra al ganar la partida-->
+		<div id="userwin">
+			<div id="winimg"></div>
+			<br>
+			<span>Your final score was: <span id="puntosFinal">0</span></span>
+			<br>
+			<button id="savebutton2" class="save"></button>
+			<br>
+			<button id="startagain"></button>
+		</div>
+
+	</body>
+	
+</html>
